@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.38.2 -->
+<interface>
+  <requires lib="gtk+" version="3.10"/>
+  <object class="GtkImage" id="btn_3pass_icon">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixbuf">resource/btn_3pass.png</property>
+  </object>
+  <object class="GtkImage" id="btn_7pass_icon">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixbuf">resource/btn_7pass.png</property>
+  </object>
+  <object class="GtkImage" id="btn_fileopen_icon">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixbuf">resource/target_file.png</property>
+  </object>
+  <object class="GtkImage" id="btn_temp_icon">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixbuf">resource/btn_temp.png</property>
+  </object>
+  <object class="GtkImage" id="btn_trim_icon">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="pixbuf">resource/btn_trim.png</property>
+  </object>
+  <object class="GtkMessageDialog" id="msdialog">
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Blue X-ray Eraser</property>
+    <property name="resizable">False</property>
+    <property name="window-position">center-always</property>
+    <property name="type-hint">dialog</property>
+    <signal name="delete-event" handler="on_msdialog_delete" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can-focus">False</property>
+            <property name="homogeneous">True</property>
+            <property name="layout-style">end</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="msd_lbl">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkImage" id="smn_log_img">
+    <property name="visible">True</property>
+    <property name="can-focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
+  <object class="GtkWindow" id="window_main">
+    <property name="width-request">360</property>
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Blue X-ray Eraser</property>
+    <property name="resizable">False</property>
+    <property name="icon">resource/main_blue_64.ico</property>
+    <signal name="destroy" handler="on_window_main_destroy" swapped="no"/>
+    <child>
+      <object class="GtkBox">
+        <property name="width-request">360</property>
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkMenuBar" id="mnu_main">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkMenuItem">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">파일(_F)</property>
+                <property name="use-underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="smn_open">
+                        <property name="label">gtk-open</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="use-underline">True</property>
+                        <property name="use-stock">True</property>
+                        <signal name="activate" handler="on_smn_open_activate" object="btn_fileopen" swapped="no"/>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkSeparatorMenuItem">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="smn_quit">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="use-underline">True</property>
+                        <property name="use-stock">True</property>
+                        <signal name="activate" handler="on_smn_quit_activate" object="window_main" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">보기(_V)</property>
+                <property name="use-underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="smn_log">
+                        <property name="label" translatable="yes">로그(_L)</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="use-underline">True</property>
+                        <property name="image">smn_log_img</property>
+                        <property name="use-stock">False</property>
+                        <signal name="activate" handler="on_smn_log_activate" object="window_logviewer" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem">
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">도움말(_H)</property>
+                <property name="use-underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="smn_about">
+                        <property name="label">gtk-about</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="use-underline">True</property>
+                        <property name="use-stock">True</property>
+                        <signal name="activate" handler="on_smn_about_activate" object="window_about" swapped="no"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed">
+            <property name="width-request">360</property>
+            <property name="height-request">170</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-top">20</property>
+            <property name="margin-bottom">20</property>
+            <child>
+              <object class="GtkButton" id="btn_fileopen">
+                <property name="width-request">322</property>
+                <property name="height-request">170</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="tooltip-text" translatable="yes">삭제할 대상 파일을 클릭하여 추가하거나, 
+파일관리를 이용하여 끌어다 놓으세요.</property>
+                <property name="image">btn_fileopen_icon</property>
+                <property name="image-position">top</property>
+                <property name="always-show-image">True</property>
+                <signal name="clicked" handler="on_btn_fileopen_clicked" object="window_main" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">20</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="lbl_file">
+                <property name="width-request">280</property>
+                <property name="height-request">20</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="ellipsize">start</property>
+                <property name="max-width-chars">25</property>
+              </object>
+              <packing>
+                <property name="x">40</property>
+                <property name="y">150</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed">
+            <property name="width-request">360</property>
+            <property name="height-request">95</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkButton" id="btn_3pass">
+                <property name="width-request">64</property>
+                <property name="height-request">86</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="tooltip-text" translatable="yes">3번 덮어쓰기 삭제</property>
+                <property name="image">btn_3pass_icon</property>
+                <property name="always-show-image">True</property>
+                <signal name="clicked" handler="on_btn_3pass_clicked" object="lbl_file" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">20</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_7pass">
+                <property name="width-request">64</property>
+                <property name="height-request">86</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="tooltip-text" translatable="yes">7번 덮어쓰기 삭제</property>
+                <property name="image">btn_7pass_icon</property>
+                <property name="always-show-image">True</property>
+                <signal name="clicked" handler="on_btn_7pass_clicked" object="lbl_file" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">102</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_trim">
+                <property name="width-request">64</property>
+                <property name="height-request">86</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="tooltip-text" translatable="yes">SSD Trim 작업</property>
+                <property name="image">btn_trim_icon</property>
+                <property name="always-show-image">True</property>
+                <signal name="clicked" handler="on_btn_trim_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">184</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_temp">
+                <property name="width-request">64</property>
+                <property name="height-request">86</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <property name="tooltip-text" translatable="yes">임시파일 삭제</property>
+                <property name="image">btn_temp_icon</property>
+                <property name="always-show-image">True</property>
+                <signal name="clicked" handler="on_btn_temp_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="x">266</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed">
+            <property name="width-request">360</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-top">20</property>
+            <property name="margin-bottom">15</property>
+            <child>
+              <object class="GtkProgressBar" id="bar_progress">
+                <property name="width-request">322</property>
+                <property name="height-request">30</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="show-text">True</property>
+              </object>
+              <packing>
+                <property name="x">20</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed">
+            <property name="width-request">360</property>
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-bottom">10</property>
+            <child>
+              <object class="GtkLabel" id="lbl_status">
+                <property name="width-request">322</property>
+                <property name="height-request">30</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="is-focus">True</property>
+                <property name="label" translatable="yes">Ready...</property>
+                <property name="ellipsize">end</property>
+              </object>
+              <packing>
+                <property name="x">20</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">4</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAboutDialog" id="window_about">
+    <property name="can-focus">False</property>
+    <property name="icon">resource/main_blue_64.ico</property>
+    <property name="type-hint">dialog</property>
+    <property name="program-name">Blue X-ray Eraser</property>
+    <property name="version">v1.0.0914.0</property>
+    <property name="comments" translatable="yes">개방형 OS를 위한 중요정보 완전삭제 프로그램</property>
+    <property name="website">http://www.joeunins.com</property>
+    <property name="website-label" translatable="yes">(주)조은아이앤에스</property>
+    <property name="authors">KgBanK, GyeongJun Jeon</property>
+    <property name="logo">resource/main_blue.png</property>
+    <property name="license-type">lgpl-2-1</property>
+    <signal name="delete-event" handler="on_about_delete" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can-focus">False</property>
+            <property name="layout-style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_about_ok">
+                <property name="label" translatable="yes">확인</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_btn_about_ok_clicked" object="window_about" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="window_logviewer">
+    <property name="width-request">680</property>
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Blue X-ray Eraser LogViewer</property>
+    <property name="icon">resource/main_blue_64.ico</property>
+    <signal name="delete-event" handler="on_logviewer_delete" swapped="no"/>
+    <child>
+      <object class="GtkBox">
+        <property name="visible">True</property>
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkScrolledWindow" id="logviewer_scrolledwindow">
+            <property name="width-request">640</property>
+            <property name="height-request">600</property>
+            <property name="visible">True</property>
+            <property name="can-focus">True</property>
+            <property name="margin-left">20</property>
+            <property name="margin-right">20</property>
+            <property name="margin-top">20</property>
+            <property name="margin-bottom">20</property>
+            <property name="shadow-type">in</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">True</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButtonBox">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <property name="margin-right">20</property>
+            <property name="margin-bottom">20</property>
+            <property name="spacing">10</property>
+            <property name="layout-style">end</property>
+            <child>
+              <object class="GtkButton" id="btn_logviewer_clear">
+                <property name="label" translatable="yes">로그 삭제</property>
+                <property name="width-request">80</property>
+                <property name="height-request">30</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_logviewer_clear_clicked" object="logviewer_scrolledwindow" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="btn_logviewer_close">
+                <property name="label" translatable="yes">닫기</property>
+                <property name="width-request">80</property>
+                <property name="height-request">30</property>
+                <property name="visible">True</property>
+                <property name="can-focus">True</property>
+                <property name="receives-default">True</property>
+                <signal name="clicked" handler="on_logviewer_close_clicked" object="window_logviewer" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkMessageDialog" id="window_start">
+    <property name="width-request">360</property>
+    <property name="height-request">435</property>
+    <property name="can-focus">False</property>
+    <property name="title" translatable="yes">Blue X-ray Eraser</property>
+    <property name="resizable">False</property>
+    <property name="type-hint">dialog</property>
+    <signal name="destroy" handler="on_window_start_destroy" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox">
+        <property name="can-focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox">
+            <property name="can-focus">False</property>
+            <property name="homogeneous">True</property>
+            <property name="layout-style">center</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="width-request">200</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="label" translatable="yes">(주) 조은아이앤에스</property>
+                <attributes>
+                  <attribute name="weight" value="ultraheavy"/>
+                </attributes>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed">
+            <property name="visible">True</property>
+            <property name="can-focus">False</property>
+            <child>
+              <object class="GtkBox">
+                <property name="width-request">360</property>
+                <property name="height-request">375</property>
+                <property name="visible">True</property>
+                <property name="can-focus">False</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkFixed">
+                    <property name="visible">True</property>
+                    <property name="can-focus">False</property>
+                    <property name="margin-left">50</property>
+                    <property name="margin-top">40</property>
+                    <property name="margin-bottom">20</property>
+                    <child>
+                      <object class="GtkImage" id="start_img">
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="pixbuf">resource/main_blue.png</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel">
+                        <property name="width-request">200</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="label" translatable="yes">Blue X-ray Eraser v1.0.0914.0</property>
+                        <property name="width-chars">2</property>
+                        <property name="max-width-chars">35</property>
+                        <attributes>
+                          <attribute name="weight" value="ultraheavy"/>
+                          <attribute name="foreground" value="#ffffffffffff"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="x">30</property>
+                        <property name="y">227</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="start_lbl">
+                        <property name="width-request">200</property>
+                        <property name="height-request">50</property>
+                        <property name="visible">True</property>
+                        <property name="can-focus">False</property>
+                        <property name="label" translatable="yes">서버에 접속중 입니다...</property>
+                        <property name="justify">center</property>
+                        <attributes>
+                          <attribute name="weight" value="ultraheavy"/>
+                        </attributes>
+                      </object>
+                      <packing>
+                        <property name="x">30</property>
+                        <property name="y">260</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">True</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

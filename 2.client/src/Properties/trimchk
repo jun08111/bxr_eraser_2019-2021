@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+CURUSER=$(logname)
+HOMEPATH=/home/${CURUSER}
+
+pkexec fstrim -v / &> ${HOMEPATH}/.bxrG/trim.txt
+
